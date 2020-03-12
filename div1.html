@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+
+<script src="uploader.js"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> 
+
+<button onclick="get()">Stop upload</button>
+
+<div id="log">Progress indication</div>
+
+<script>
+  function log(html) {
+    document.getElementById('log').innerHTML = html;
+  }
+
+  let uploader = new Uploader();
+  window.onload = ()=>{
+    uploader.plotRandom()
+  //  uploader.plotLastValue();
+  }
+   async function get() {
+    try{
+      
+     
+      let x = await uploader.gettt();
+      document.getElementById('log').innerHTML = x;
+    }
+    catch {
+      log("Error index.html")
+    }
+  };
+////////////////
+</script>
+<body>
+  <div id="plotRandom" style="height: 300px; width: 100%;"></div>
+  <div id="avg"> Today's Total : xxxx  </div>
+ <div id ="text"> Monthly Consumption : xxxx  </div>
+  <div id="plotLastValue" style="height: 300px; width: 100%;"></div>  
+ </body>
